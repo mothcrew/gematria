@@ -3,122 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALW Cipher Converter</title>
+    <title>skunk.bingo</title>
     <style>
-	html { 
-	    background-color: black;
-	}
         body {
+            background-color: black;
+            color: #5cab4f; /* Light greenish text */
             font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-	    background-color: black;
-        }
-        input {
-	    margin-top: 30px;
-            width: 60%;
-            padding: 20px;
-            font-size: 16px;
-            border-radius: 10px;
-            border: 1px solid #b8bab9;
-            background-color: #b8bab9;
-            outline: none;
-        }
-        h1 {
-            font-size: 60px;
-            font-weight: bold;
-	    color: white;
-        }
-        p {
-            font-size: 40px;
-            font-weight: bold;
-	    color: white;
+            font-size: 16px; /* Medium size font */
         }
         a {
-            font-size: 20px;
-            font-weight: bold;
-	    color: #fcba03;
+            color: #a5d99c;
+            text-decoration: none;
         }
-        #sumOutput {
-            font-size: 40px;
-            color: #42f58d;
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
-	@media (max-width: 600px) {
-            body {
-                margin: 20px;
-            }
-            input {
-                width: 90%;
-                font-size: 14px;
-                padding: 8px;
-            }
-            h1 {
-                font-size: 40px;
-            }
-            p, #sumOutput {
-                font-size: 24px;
-            }
+        li {
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
-    <input type="text" id="textInput" oninput="convertText()" placeholder="Type here...">
-    <p>NAEQ Sum: <span id="sumOutput">0</span></p>
-    <a href="https://youtu.be/Fvkz-yvQmi4?si=t3nUQz-X4kpqmnrH"/>93</a>
-<script>
-    const alwCipher = {
-        'A': 1, 'L': 2, 'W': 3, 'H': 4, 'S': 5, 'D': 6, 'O': 7, 'Z': 8, 'K': 9, 'V': 10,
-        'G': 11, 'R': 12, 'C': 13, 'N': 14, 'Y': 15, 'J': 16, 'U': 17, 'F': 18, 'Q': 19, 'B': 20,
-        'M': 21, 'X': 22, 'I': 23, 'T': 24, 'E': 25, 'P': 26
-    };
-
-    function convertText() {
-        let inputText = document.getElementById("textInput").value.toUpperCase();
-        let sum = 0;
-        let displayText = '';
-        let numbers = []; // Array to hold space-separated numbers
-
-        let currentNumber = ''; // Temporarily stores a number as we loop through the input
-
-        // Loop through each character in the input
-        for (let char of inputText) {
-            // If it's a letter, calculate its value and add to the sum
-            if (alwCipher[char]) {
-                sum += alwCipher[char];
-                displayText += char;
-            }
-            // If it's a number, form the number string (don't add to sum yet)
-            else if (!isNaN(char) && char !== ' ') {
-                currentNumber += char; // Keep building the current number
-            }
-            // If it's a space, finalize the current number and reset
-            else if (char === ' ') {
-                if (currentNumber !== '') {
-                    numbers.push(parseInt(currentNumber)); // Add complete number to the numbers array
-                    currentNumber = ''; // Reset for next number
-                }
-                displayText += ' '; // Add the space to the display text
-            }
-        }
-
-        // If there's a number left after the last character (no space after it)
-        if (currentNumber !== '') {
-            numbers.push(parseInt(currentNumber));
-        }
-
-        // If there are numbers in the input, calculate their sum (no doubling now)
-        if (numbers.length > 0) {
-            sum += numbers.reduce((a, b) => a + b, 0); // Add up all space-separated numbers
-        }
-
-        // Display either the sum or the unaltered input
-        document.getElementById("sumOutput").textContent = sum || displayText;
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        document.getElementById("textInput").addEventListener("input", convertText);
-    });
-</script>
-
+    <h1>A collection of things</h1>
+    <ul>
+        <li><a href="./naeq.html">NAEQ Calculator</a></li>
+    </ul>
 </body>
 </html>
+
